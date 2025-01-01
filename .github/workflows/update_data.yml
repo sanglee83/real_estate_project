@@ -28,3 +28,13 @@ jobs:
 
     - name: Run Data Update Script
       run: python crawler_real_state.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --local user.email "your-email@example.com"
+        git config --local user.name "Your Name"
+        git add real_estate_data.pkl
+        git commit -m "Update real estate data"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
