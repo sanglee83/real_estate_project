@@ -1,5 +1,5 @@
 jobs:
-  update-data:
+  update-data: 
     runs-on: ubuntu-latest
 
     steps:
