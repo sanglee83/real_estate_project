@@ -1,10 +1,3 @@
-name: Update Real Estate Data
-
-on:
-  schedule:
-    - cron: "0 0 * * *"  # 매일 00:00 UTC에 실행
-  workflow_dispatch:  # 수동으로 실행 가능
-
 jobs:
   update-data:
     runs-on: ubuntu-latest
@@ -12,6 +5,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
+
+    - name: Check File Structure
+      run: ls -R
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -25,13 +21,3 @@ jobs:
 
     - name: Run Data Update Script
       run: python naver_real_state.py
-
-    - name: Commit and Push Changes
-      run: |
-        git config --local user.email "your-email@example.com"
-        git config --local user.name "Your Name"
-        git add real_estate_data.pkl
-        git commit -m "Update real estate data"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
