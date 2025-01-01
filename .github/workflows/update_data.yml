@@ -21,3 +21,4 @@ jobs:
 
     - name: Run Data Update Script
       run: python naver_real_state.py
+      working-directory: /home/runner/work/real_estate_project/real_estate_project
