@@ -27,5 +27,4 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Data Update Script
-      run: python naver_real_state.py
-      working-directory: /home/runner/work/real_estate_project/
+      run: python crawler_real_state.py
