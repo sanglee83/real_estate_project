@@ -4,8 +4,8 @@ on:
   push:  # Push 이벤트가 발생할 때 실행
     branches:
       - main  # main 브랜치에 변경 사항이 있을 때만 실행
-  schedule:  # 매일 자정(UTC)에 실행
-    - cron: "0 0 * * *"
+  schedule:  # 매일 한국 시간(KST) 자정에 실행 (UTC+9 -> UTC 15:00)
+    - cron: "15 0 * * *"  # 매일 UTC 기준 오후 3시에 실행
   workflow_dispatch:  # 수동 실행을 위한 트리거
 
 jobs:
@@ -37,4 +37,4 @@ jobs:
         git commit -m "Update real estate data"
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
